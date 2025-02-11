@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stupid Questions</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            background-color: #f0f0f0; /* Light background */
+        }
+        .question {
+            display: none; /* Initially hide all questions */
+            margin-bottom: 20px;
+        }
+        .question.active {
+            display: block; /* Show the active question */
+        }
+        .sticker {
+            width: 100px; /* Adjust sticker size as needed */
+            margin-top: 10px;
+        }
+         #final-message{
+            display: none;
+         }
+         button{
+            margin: 5px;
+         }
+    </style>
+</head>
+<body>
+
+    <h1>Prepare for Stupidity!</h1>
+
+    <div class="question active" id="question1">
+        <h2>Is water wet?</h2>
+        <button onclick="showNextQuestion(1, 'question2')">Yes</button>
+        <button onclick="showNextQuestion(1, 'question2')">No</button>
+        <img src="https://media.tenor.com/7g56iu87-3UAAAAi/spongebob-patrick.gif" alt="Confused Sticker" class="sticker"> </div>
+
+    <div class="question" id="question2">
+        <h2>Do fish drown?</h2>
+        <button onclick="showNextQuestion(2, 'question3')">Yes</button>
+        <button onclick="showNextQuestion(2, 'question3')">No</button>
+        <img src="https://media.tenor.com/0v5v3lD7j70AAAAi/fish-spongebob.gif" alt="Fish Sticker" class="sticker">
+    </div>
+
+    <div class="question" id="question3">
+        <h2>If a tree falls in the forest and no one is around to hear it, does it make a sound?</h2>
+        <button onclick="showFinalMessage()">Yes</button>
+        <button onclick="showFinalMessage()">No</button>
+        <img src="https://media.tenor.com/lHV9w-MaZ_AAAAi/thinking-emoji.gif" alt="Thinking Sticker" class="sticker">
+    </div>
+
+    <div id="final-message">
+        <h2>What are you doing?</h2>
+        <img src="https://media.tenor.com/n67mE_qR96UAAAAi/what-are-you-doing-wazzup.gif" alt="Wazzup Sticker" class="sticker">
+    </div>
+
+
+    <script>
+        function showNextQuestion(currentQuestionNumber, nextQuestionId) {
+            document.getElementById('question' + currentQuestionNumber).classList.remove('active');
+            document.getElementById(nextQuestionId).classList.add('active');
+        }
+
+        function showFinalMessage() {
+            document.getElementById('question3').classList.remove('active');
+            document.getElementById('final-message').style.display = 'block'; // Show the final message
+        }
+    </script>
+
+</body>
+</html>
